@@ -1,1 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Retro - One File</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <style>
+        /* CSS TRỰC TIẾP */
+        * { box-sizing: border-box; }
+        
+        body {
+            background-color: #d1d5db;
+            background-image: radial-gradient(#9ca3af 1px, transparent 1px);
+            background-size: 20px 20px;
+            font-family: 'VT323', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .main-window {
+            background: #f3f4f6;
+            border: 3px solid #000;
+            box-shadow: 12px 12px 0px #000;
+            width: 100%;
+            max-width: 900px;
+            padding: 25px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        /* Hiệu ứng Card giống trang mẫu */
+        .card {
+            background: white;
+            border: 3px solid #000;
+            box-shadow: 6px 6px 0px #000;
+            padding: 15px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            background-color: #fffdec; /* Đổi màu nền nhẹ */
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0px #000;
+            border-color: #ff5722;
+        }
+
+        h3 {
+            margin: 0 0 15px 0;
+            font-size: 22px;
+            border-bottom: 2px solid #000;
+            display: inline-block;
+        }
+
+        .profile img {
+            width: 100%;
+            border: 3px solid #000;
+            display: block;
+        }
+
+        .name-tag {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 8px;
+            margin-top: 10px;
+            font-size: 24px;
+        }
+
+        /* Hiệu ứng Đổi màu cho Tags */
+        .tags span {
+            display: inline-block;
+            padding: 4px 10px;
+            border: 2px solid #000;
+            margin: 4px;
+            background: #fff;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .tags span:hover {
+            background: #ffeb3b;
+            transform: scale(1.1);
+        }
+
+        /* Thanh kỹ năng */
+        .skill-item { margin-bottom: 15px; }
+        .progress {
+            height: 20px;
+            border: 2px solid #000;
+            background: #eee;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        .bar {
+            height: 100%;
+            background: #000;
+            transition: width 1s;
+        }
+        .card:hover .bar {
+            background: linear-gradient(90deg, #ff5722, #ffeb3b);
+        }
+
+        /* Social Icons */
+        .icons { font-size: 30px; display: flex; gap: 15px; }
+        .icons i { cursor: pointer; transition: 0.2s; }
+        .icons i:hover { color: #ff5722; transform: translateY(-5px); }
+
+        .status-tag {
+            float: right;
+            padding: 2px 8px;
+            border: 2px solid #000;
+            font-size: 16px;
+        }
+        .active { background: #bfffa3; }
+        .done { background: #a3c4ff; }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 3px solid #000;
+            padding-top: 15px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-window">
+        <div class="top-bar">
+            <span>❤ Tôi Yêu Em !</span>
+            <span id="clock">00:00:00</span>
+        </div>
+
+        <div class="content-grid">
+            <div class="column">
+                <div class="card">
+                    <div class="profile">
+                        <img src="https://sf-static.upanhlaylink.com/img/image_202601048b59f95ed4e14f416097775da3d348f6.jpg" alt="Avatar">
+                        <div class="name-tag">DUCKNOVIT</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>STATS</h3>
+                    <p>Tuổi: <b>15</b></p>
+                    <p>Status: <span style="color: green;">● Online</span></p>
+                    <p>From: Việt Nam 🇻🇳</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <h3>SỞ THÍCH</h3>
+                    <div class="tags">
+                        <span>MUSIC</span> <span>GAME</span> <span>CODE</span> <span>AI</span> <span>ANIME</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>KỸ NĂNG</h3>
+                    <div class="skill-item">
+                        <span>Music - 100%</span>
+                        <div class="progress"><div class="bar" style="width: 100%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Hack Game - 75%</span>
+                        <div class="progress"><div class="bar" style="width: 75%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <h3>SOCIAL</h3>
+                    <div class="icons">
+                        <i class="fab fa-discord"></i>
+                        <i class="fab fa-github"></i>
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>PROJECTS</h3>
+                    <p>AI Bot <span class="status-tag active">Active</span></p>
+                    <div style="clear:both; height: 10px;"></div>
+                    <p>Portfolio <span class="status-tag done">Done</span></p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Made with ❤ by DUCKNOVIT | © 2024
+        </footer>
+    </div>
+
+    <script>
+        // SCRIPT CHẠY ĐỒNG HỒ
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
+                            now.getMinutes().toString().padStart(2, '0') + ":" + 
+                            now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').innerText = timeStr;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
