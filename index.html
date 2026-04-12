@@ -12,7 +12,6 @@
         .pixel-border-sm { border: 2px solid #1a1a1a; }
         .btn-pixel:hover { background-color: #1a1a1a; color: white; transform: translate(-2px, -2px); box-shadow: 4px 4px 0px #000; }
         .progress-fill { background-color: #1a1a1a; height: 100%; }
-        /* Hiệu ứng lá rơi nhẹ cho sinh động */
         @keyframes leafFall { 0% { top: -10%; transform: translateX(0) rotate(0); } 100% { top: 110%; transform: translateX(100px) rotate(360deg); } }
         .leaf { position: fixed; color: #555; pointer-events: none; z-index: -1; animation: leafFall 10s linear infinite; }
     </style>
@@ -34,30 +33,112 @@
             <div class="md:col-span-4 space-y-6">
                 <div class="flex flex-col items-center">
                     <img src="https://i.imgur.com/rN1fD1f.png" alt="Avatar" class="w-32 h-32 pixel-border object-cover mb-4">
-                    <div class="pixel-border px-4 py-1 text-2xl font-bold tracking-tighter bg-gray-50">DUCKNOVIT</div>
+                    <div class="pixel-border px-4 py-1 text-2xl font-bold tracking-tighter bg-gray-50 uppercase">DUCKNOVIT</div>
                 </div>
 
                 <div class="pixel-border p-4 space-y-2 bg-white">
-                    <h3 class="font-bold border-b-2 border-black mb-2 flex justify-between">STATS <span>[+]</span></h3>
+                    <h3 class="font-bold border-b-2 border-black mb-2 flex justify-between uppercase">Stats <span>[+]</span></h3>
                     <p>Tuổi: <span class="text-green-600 font-bold">15</span></p>
                     <p>Status: <span class="text-green-500 animate-bounce inline-block">● Online</span></p>
-                    <p>From: Miền Tây - VN</p>
+                    <p>From: Việt Nam VN</p>
                     <p>Mood: Learning AI... 🤖</p>
                 </div>
 
                 <div class="pixel-border p-4 bg-white">
-                    <h3 class="font-bold mb-2">SOCIAL</h3>
-                    <div class="grid grid-cols-5 gap-2 text-center">
-                        <a href="#" class="pixel-border-sm p-1 btn-pixel">D</a>
-                        <a href="#" class="pixel-border-sm p-1 btn-pixel">G</a>
-                        <a href="#" class="pixel-border-sm p-1 btn-pixel">F</a>
-                        <a href="#" class="pixel-border-sm p-1 btn-pixel">T</a>
-                        <a href="#" class="pixel-border-sm p-1 btn-pixel">Y</a>
+                    <h3 class="font-bold mb-2 uppercase">Social</h3>
+                    <div class="grid grid-cols-5 gap-2 text-center text-xs">
+                        <a href="#" class="pixel-border-sm p-1 btn-pixel">DS</a>
+                        <a href="#" class="pixel-border-sm p-1 btn-pixel">GH</a>
+                        <a href="#" class="pixel-border-sm p-1 btn-pixel">FB</a>
+                        <a href="#" class="pixel-border-sm p-1 btn-pixel">TT</a>
+                        <a href="#" class="pixel-border-sm p-1 btn-pixel">YT</a>
                     </div>
                 </div>
             </div>
 
             <div class="md:col-span-8 space-y-6">
                 <div class="pixel-border p-4 bg-white">
-                    <h3 class="font-bold mb-3 uppercase flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2
+                    <h3 class="font-bold mb-3 uppercase flex items-center gap-2">Sở Thích</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pixel-border-sm px-3 py-1 btn-pixel cursor-pointer text-sm">MUSIC</span>
+                        <span class="pixel-border-sm px-3 py-1 btn-pixel cursor-pointer text-sm">GAME</span>
+                        <span class="pixel-border-sm px-3 py-1 btn-pixel cursor-pointer text-sm">CODE</span>
+                        <span class="pixel-border-sm px-3 py-1 btn-pixel cursor-pointer text-sm">AI</span>
+                        <span class="pixel-border-sm px-3 py-1 btn-pixel cursor-pointer text-sm">ANIME</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="pixel-border p-4 bg-white">
+                        <h3 class="font-bold mb-4 uppercase">Yêu Thích</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><span>AI</span><span>95%</span></div>
+                                <div class="h-4 pixel-border-sm w-full bg-gray-100 p-0.5"><div class="progress-fill" style="width: 95%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1"><span>Gaming</span><span>80%</span></div>
+                                <div class="h-4 pixel-border-sm w-full bg-gray-100 p-0.5"><div class="progress-fill" style="width: 80%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pixel-border p-4 bg-white text-sm">
+                        <h3 class="font-bold mb-4 uppercase">Kỹ Năng</h3>
+                        <div class="space-y-3">
+                            <div>Music <div class="h-1 bg-black w-full mt-1"></div></div>
+                            <div>Hack Game <div class="h-1 bg-black w-[75%] mt-1"></div></div>
+                            <div>Used AI <div class="h-1 bg-black w-[80%] mt-1"></div></div>
+                            <div>Code <div class="h-1 bg-black w-[1%] mt-1"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="pixel-border p-4 bg-gray-50 relative overflow-hidden">
+                        <p class="text-lg leading-tight italic">"Cuộc sống vốn không công bằng. Hãy tập quen dần với điều đó."</p>
+                        <span class="block text-right mt-2 text-sm font-bold">- Bill Gates</span>
+                    </div>
+                    <div class="pixel-border p-4 bg-white">
+                        <h3 class="font-bold mb-3 uppercase tracking-tighter">Projects</h3>
+                        <div class="space-y-2">
+                            <div class="pixel-border-sm p-2 flex justify-between items-center bg-gray-50 text-[10px]">
+                                <div><strong>AI Bot</strong> - Active</div>
+                                <span class="bg-green-300 px-1 pixel-border-sm">ONLINE</span>
+                            </div>
+                            <div class="pixel-border-sm p-2 flex justify-between items-center bg-gray-50 text-[10px]">
+                                <div><strong>Portfolio</strong> - Done</div>
+                                <span class="bg-purple-300 px-1 pixel-border-sm">DONE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center text-sm border-t-2 border-dashed border-black pt-4 flex justify-between px-2 uppercase font-bold">
+            <span>Made with ❤ by DUCKNOVIT</span>
+            <span>© 2026</span>
+        </div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString('en-GB');
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        for(let i=0; i<10; i++) {
+            let leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.innerHTML = '🍃';
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.animationDelay = Math.random() * 10 + 's';
+            leaf.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            document.body.appendChild(leaf);
+        }
+    </script>
+</body>
+</html>
