@@ -7,13 +7,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'VT323', monospace; background-image: radial-gradient(#d1d5db 1px, transparent 1px); background-size: 20px 20px; background-color: #f3f4f6; }
+        body { 
+            font-family: 'VT323', monospace; 
+            background-color: #f3f4f6; 
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px); 
+            background-size: 20px 20px; 
+            -webkit-font-smoothing: none; /* Giúp chữ pixel sắc nét hơn */
+            -moz-osx-font-smoothing: grayscale;
+        }
         .pixel-border { border: 4px solid #1a1a1a; box-shadow: 4px 4px 0px #00000020; transition: all 0.2s; }
         .pixel-border-sm { border: 2px solid #1a1a1a; }
-        .btn-pixel:hover { background-color: #1a1a1a; color: white; transform: translate(-2px, -2px); box-shadow: 4px 4px 0px #000; }
+        .btn-pixel { background-color: white; color: black; }
+        .btn-pixel:hover { background-color: #1a1a1a !important; color: white !important; transform: translate(-1px, -1px); box-shadow: 2px 2px 0px #000; }
         .progress-fill { background-color: #1a1a1a; height: 100%; }
+        /* Hiệu ứng lá rơi nhẹ */
         @keyframes leafFall { 0% { top: -10%; transform: translateX(0) rotate(0); } 100% { top: 110%; transform: translateX(100px) rotate(360deg); } }
-        .leaf { position: fixed; color: #555; pointer-events: none; z-index: -1; animation: leafFall 10s linear infinite; }
+        .leaf { position: fixed; color: #555; pointer-events: none; z-index: -1; animation: leafFall 12s linear infinite; }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
@@ -22,10 +31,10 @@
         
         <div class="flex justify-between items-center mb-6 border-b-4 border-black pb-2">
             <div class="flex items-center gap-2">
-                <span class="text-red-500 animate-pulse">❤</span>
-                <span class="text-xl font-bold uppercase">Tôi Yêu Em !</span>
+                <span class="text-red-500 animate-pulse text-2xl">❤</span>
+                <span class="text-3xl font-bold uppercase tracking-tighter">Tôi Yêu Em !</span>
             </div>
-            <div class="text-xl bg-gray-100 px-3 pixel-border-sm" id="clock">00:00:00</div>
+            <div class="text-2xl bg-gray-100 px-4 py-1 pixel-border-sm font-bold" id="clock">00:00:00</div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -33,59 +42,62 @@
             <div class="md:col-span-4 space-y-6">
                 <div class="flex flex-col items-center">
                     <img src="https://i.imgur.com/rN1fD1f.png" alt="Avatar" class="w-32 h-32 pixel-border object-cover mb-4">
-                    <div class="pixel-border px-4 py-1 text-2xl font-bold tracking-tighter bg-gray-50 uppercase">DUCKNOVIT</div>
+                    <div class="pixel-border px-5 py-1.5 text-3xl font-bold tracking-tighter bg-gray-50 uppercase shadow-inner">DUCKNOVIT</div>
                 </div>
 
-                <div class="pixel-border p-4 space-y-2 bg-white">
-                    <h3 class="font-bold border-b-2 border-black mb-2 flex justify-between uppercase">Stats <span>[+]</span></h3>
+                <div class="pixel-border p-4 space-y-2 bg-white text-lg">
+                    <h3 class="font-bold border-b-2 border-black mb-2 flex justify-between uppercase text-xl">Stats <span>[+]</span></h3>
                     <p>Tuổi: <span class="text-green-600 font-bold">15</span></p>
-                    <p>Status: <span class="text-green-500 animate-bounce inline-block">● Online</span></p>
+                    <p>Status: <span class="text-green-500 font-bold animate-pulse inline-block">● Online</span></p>
                     <p>From: Việt Nam VN</p>
                     <p>Mood: Learning AI... 🤖</p>
                 </div>
 
                 <div class="pixel-border p-4 bg-white">
-                    <h3 class="font-bold mb-2 uppercase">Social</h3>
-                    <div class="grid grid-cols-5 gap-2 text-center text-xs">
-                        <a href="#" class="pixel-border-sm p-1 btn-pixel">DS</a>
-                        <a href="#" class="pixel-border-sm p-1 btn-pixel">GH</a>
-                        <a href="#" class="pixel-border-sm p-1 btn-pixel">FB</a>
-                        <a href="#" class="pixel-border-sm p-1 btn-pixel">TT</a>
-                        <a href="#" class="pixel-border-sm p-1 btn-pixel">YT</a>
+                    <h3 class="font-bold mb-3 uppercase text-xl">Social</h3>
+                    <div class="grid grid-cols-5 gap-2 text-center text-sm">
+                        <a href="#" class="pixel-border-sm p-1.5 btn-pixel font-bold">DS</a>
+                        <a href="#" class="pixel-border-sm p-1.5 btn-pixel font-bold">GH</a>
+                        <a href="#" class="pixel-border-sm p-1.5 btn-pixel font-bold">FB</a>
+                        <a href="#" class="pixel-border-sm p-1.5 btn-pixel font-bold">TT</a>
+                        <a href="#" class="pixel-border-sm p-1.5 btn-pixel font-bold">YT</a>
                     </div>
                 </div>
             </div>
 
             <div class="md:col-span-8 space-y-6">
                 <div class="pixel-border p-4 bg-white">
-                    <h3 class="font-bold mb-3 uppercase flex items-center gap-2">Sở Thích</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="pixel-border-sm px-3 py-1 btn-pixel cursor-pointer text-sm">MUSIC</span>
-                        <span class="pixel-border-sm px-3 py-1 btn-pixel cursor-pointer text-sm">GAME</span>
-                        <span class="pixel-border-sm px-3 py-1 btn-pixel cursor-pointer text-sm">CODE</span>
-                        <span class="pixel-border-sm px-3 py-1 btn-pixel cursor-pointer text-sm">AI</span>
-                        <span class="pixel-border-sm px-3 py-1 btn-pixel cursor-pointer text-sm">ANIME</span>
+                    <h3 class="font-bold mb-3 uppercase flex items-center gap-2 text-xl">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                        Sở Thích
+                    </h3>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="pixel-border-sm px-4 py-1.5 btn-pixel cursor-pointer text-base font-bold">MUSIC</span>
+                        <span class="pixel-border-sm px-4 py-1.5 btn-pixel cursor-pointer text-base font-bold">GAME</span>
+                        <span class="pixel-border-sm px-4 py-1.5 btn-pixel cursor-pointer text-base font-bold">CODE</span>
+                        <span class="pixel-border-sm px-4 py-1.5 btn-pixel cursor-pointer text-base font-bold">AI</span>
+                        <span class="pixel-border-sm px-4 py-1.5 btn-pixel cursor-pointer text-base font-bold">ANIME</span>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="pixel-border p-4 bg-white">
-                        <h3 class="font-bold mb-4 uppercase">Yêu Thích</h3>
+                    <div class="pixel-border p-4 bg-white text-lg">
+                        <h3 class="font-bold mb-4 uppercase text-xl">Yêu Thích</h3>
                         <div class="space-y-4">
                             <div>
-                                <div class="flex justify-between text-sm mb-1"><span>AI</span><span>95%</span></div>
+                                <div class="flex justify-between mb-1"><span>AI</span><span class="font-bold">95%</span></div>
                                 <div class="h-4 pixel-border-sm w-full bg-gray-100 p-0.5"><div class="progress-fill" style="width: 95%"></div></div>
                             </div>
                             <div>
-                                <div class="flex justify-between text-sm mb-1"><span>Gaming</span><span>80%</span></div>
+                                <div class="flex justify-between mb-1"><span>Gaming</span><span class="font-bold">80%</span></div>
                                 <div class="h-4 pixel-border-sm w-full bg-gray-100 p-0.5"><div class="progress-fill" style="width: 80%"></div></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="pixel-border p-4 bg-white text-sm">
-                        <h3 class="font-bold mb-4 uppercase">Kỹ Năng</h3>
-                        <div class="space-y-3">
+                    <div class="pixel-border p-4 bg-white text-base">
+                        <h3 class="font-bold mb-4 uppercase text-xl">Kỹ Năng</h3>
+                        <div class="space-y-3.5 font-bold">
                             <div>Music <div class="h-1 bg-black w-full mt-1"></div></div>
                             <div>Hack Game <div class="h-1 bg-black w-[75%] mt-1"></div></div>
                             <div>Used AI <div class="h-1 bg-black w-[80%] mt-1"></div></div>
@@ -95,20 +107,21 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="pixel-border p-4 bg-gray-50 relative overflow-hidden">
-                        <p class="text-lg leading-tight italic">"Cuộc sống vốn không công bằng. Hãy tập quen dần với điều đó."</p>
-                        <span class="block text-right mt-2 text-sm font-bold">- Bill Gates</span>
+                    <div class="pixel-border p-5 bg-gray-50 relative overflow-hidden">
+                        <span class="text-5xl absolute -top-2 -left-2 opacity-10 font-serif">“</span>
+                        <p class="text-xl leading-tight relative z-10 italic font-medium">"Cuộc sống vốn không công bằng. Hãy tập quen dần với điều đó."</p>
+                        <span class="block text-right mt-3 text-base font-bold">- Bill Gates</span>
                     </div>
                     <div class="pixel-border p-4 bg-white">
-                        <h3 class="font-bold mb-3 uppercase tracking-tighter">Projects</h3>
-                        <div class="space-y-2">
-                            <div class="pixel-border-sm p-2 flex justify-between items-center bg-gray-50 text-[10px]">
-                                <div><strong>AI Bot</strong> - Active</div>
-                                <span class="bg-green-300 px-1 pixel-border-sm">ONLINE</span>
+                        <h3 class="font-bold mb-3 uppercase tracking-tighter text-xl">Projects</h3>
+                        <div class="space-y-2.5">
+                            <div class="pixel-border-sm p-2 flex justify-between items-center bg-gray-50 text-xs font-bold">
+                                <div><strong>AI Bot</strong> - Discord Bot</div>
+                                <span class="bg-green-300 px-1.5 py-0.5 pixel-border-sm text-[10px]">ACTIVE</span>
                             </div>
-                            <div class="pixel-border-sm p-2 flex justify-between items-center bg-gray-50 text-[10px]">
+                            <div class="pixel-border-sm p-2 flex justify-between items-center bg-gray-50 text-xs font-bold">
                                 <div><strong>Portfolio</strong> - Done</div>
-                                <span class="bg-purple-300 px-1 pixel-border-sm">DONE</span>
+                                <span class="bg-purple-300 px-1.5 py-0.5 pixel-border-sm text-[10px]">DONE</span>
                             </div>
                         </div>
                     </div>
@@ -116,13 +129,14 @@
             </div>
         </div>
 
-        <div class="mt-8 text-center text-sm border-t-2 border-dashed border-black pt-4 flex justify-between px-2 uppercase font-bold">
+        <div class="mt-8 text-center text-base border-t-2 border-dashed border-black pt-4 flex justify-between px-2 uppercase font-bold opacity-80">
             <span>Made with ❤ by DUCKNOVIT</span>
             <span>© 2026</span>
         </div>
     </div>
 
     <script>
+        // Đồng hồ nét căng
         function updateTime() {
             const now = new Date();
             document.getElementById('clock').innerText = now.toLocaleTimeString('en-GB');
@@ -130,13 +144,14 @@
         setInterval(updateTime, 1000);
         updateTime();
 
-        for(let i=0; i<10; i++) {
+        // Lá rơi nhẹ cho đúng gu retro
+        for(let i=0; i<8; i++) {
             let leaf = document.createElement('div');
             leaf.className = 'leaf';
             leaf.innerHTML = '🍃';
             leaf.style.left = Math.random() * 100 + 'vw';
-            leaf.style.animationDelay = Math.random() * 10 + 's';
-            leaf.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            leaf.style.animationDelay = Math.random() * 12 + 's';
+            leaf.style.fontSize = (Math.random() * 10 + 12) + 'px';
             document.body.appendChild(leaf);
         }
     </script>
