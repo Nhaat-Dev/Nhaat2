@@ -3,223 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Retro - One File</title>
-    
+    <title>Ducknovit Profile Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <style>
-        /* CSS TRỰC TIẾP */
-        * { box-sizing: border-box; }
-        
         body {
-            background-color: #d1d5db;
-            background-image: radial-gradient(#9ca3af 1px, transparent 1px);
-            background-size: 20px 20px;
             font-family: 'VT323', monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 20px 20px; /* Hiệu ứng giấy kẻ ô */
+            background-color: #f3f4f6;
         }
-
-        .main-window {
-            background: #f3f4f6;
-            border: 3px solid #000;
-            box-shadow: 12px 12px 0px #000;
-            width: 100%;
-            max-width: 900px;
-            padding: 25px;
+        .pixel-border {
+            border: 4px solid #1a1a1a;
+            box-shadow: 4px 4px 0px #00000020;
         }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 3px solid #000;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            font-size: 28px;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        /* Hiệu ứng Card giống trang mẫu */
-        .card {
-            background: white;
-            border: 3px solid #000;
-            box-shadow: 6px 6px 0px #000;
-            padding: 15px;
-            transition: all 0.2s ease;
-            position: relative;
-        }
-
-        .card:hover {
-            background-color: #fffdec; /* Đổi màu nền nhẹ */
-            transform: translate(3px, 3px);
-            box-shadow: 3px 3px 0px #000;
-            border-color: #ff5722;
-        }
-
-        h3 {
-            margin: 0 0 15px 0;
-            font-size: 22px;
-            border-bottom: 2px solid #000;
-            display: inline-block;
-        }
-
-        .profile img {
-            width: 100%;
-            border: 3px solid #000;
-            display: block;
-        }
-
-        .name-tag {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 8px;
-            margin-top: 10px;
-            font-size: 24px;
-        }
-
-        /* Hiệu ứng Đổi màu cho Tags */
-        .tags span {
-            display: inline-block;
-            padding: 4px 10px;
-            border: 2px solid #000;
-            margin: 4px;
-            background: #fff;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .tags span:hover {
-            background: #ffeb3b;
-            transform: scale(1.1);
-        }
-
-        /* Thanh kỹ năng */
-        .skill-item { margin-bottom: 15px; }
-        .progress {
-            height: 20px;
-            border: 2px solid #000;
-            background: #eee;
-            margin-top: 5px;
-            overflow: hidden;
-        }
-        .bar {
+        .progress-fill {
+            background-color: #1a1a1a;
             height: 100%;
-            background: #000;
-            transition: width 1s;
         }
-        .card:hover .bar {
-            background: linear-gradient(90deg, #ff5722, #ffeb3b);
-        }
-
-        /* Social Icons */
-        .icons { font-size: 30px; display: flex; gap: 15px; }
-        .icons i { cursor: pointer; transition: 0.2s; }
-        .icons i:hover { color: #ff5722; transform: translateY(-5px); }
-
-        .status-tag {
-            float: right;
-            padding: 2px 8px;
-            border: 2px solid #000;
-            font-size: 16px;
-        }
-        .active { background: #bfffa3; }
-        .done { background: #a3c4ff; }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            border-top: 3px solid #000;
-            padding-top: 15px;
-            font-size: 20px;
+        .btn-pixel:hover {
+            background-color: #1a1a1a;
+            color: white;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px #000;
         }
     </style>
 </head>
-<body>
+<body class="flex items-center justify-center min-h-screen p-4">
 
-    <div class="main-window">
-        <div class="top-bar">
-            <span>❤ Tôi Yêu Em !</span>
-            <span id="clock">00:00:00</span>
+    <div class="bg-white p-6 pixel-border w-full max-w-4xl relative">
+        
+        <div class="flex justify-between items-center mb-6 border-b-2 border-black pb-2">
+            <div class="flex items-center gap-2">
+                <span>❤</span>
+                <span class="text-xl">Tôi Yêu Em !</span>
+            </div>
+            <div class="text-xl" id="clock">13:57:53</div>
         </div>
 
-        <div class="content-grid">
-            <div class="column">
-                <div class="card">
-                    <div class="profile">
-                        <img src="https://sf-static.upanhlaylink.com/img/image_202601048b59f95ed4e14f416097775da3d348f6.jpg" alt="Avatar">
-                        <div class="name-tag">DUCKNOVIT</div>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            
+            <div class="md:col-span-4 space-y-6">
+                <div class="flex flex-col items-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz8eM_V9X-8t4N2K0n9v9Xf9m9Xf9m9Xf9m9X" 
+                         alt="Avatar" class="w-32 h-32 pixel-border object-cover mb-4">
+                    <div class="pixel-border px-4 py-1 text-2xl font-bold tracking-widest">DUCKNOVIT</div>
                 </div>
-                <div class="card">
-                    <h3>STATS</h3>
-                    <p>Tuổi: <b>15</b></p>
-                    <p>Status: <span style="color: green;">● Online</span></p>
-                    <p>From: Việt Nam 🇻🇳</p>
-                </div>
-            </div>
 
-            <div class="column">
-                <div class="card">
-                    <h3>SỞ THÍCH</h3>
-                    <div class="tags">
-                        <span>MUSIC</span> <span>GAME</span> <span>CODE</span> <span>AI</span> <span>ANIME</span>
-                    </div>
+                <div class="pixel-border p-4 space-y-1">
+                    <h3 class="font-bold border-b border-black mb-2">STATS</h3>
+                    <p>Tuổi: <span class="text-green-600 font-bold">15</span></p>
+                    <p>Status: <span class="text-green-500">Online</span></p>
+                    <p>From: Việt Nam VN</p>
+                    <p>Mood: Learning AI... 🤖</p>
                 </div>
-                <div class="card">
-                    <h3>KỸ NĂNG</h3>
-                    <div class="skill-item">
-                        <span>Music - 100%</span>
-                        <div class="progress"><div class="bar" style="width: 100%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Hack Game - 75%</span>
-                        <div class="progress"><div class="bar" style="width: 75%"></div></div>
+
+                <div class="pixel-border p-4">
+                    <h3 class="font-bold mb-2">SOCIAL</h3>
+                    <div class="flex gap-2">
+                        <button class="pixel-border p-1 w-10 h-10 flex items-center justify-center btn-pixel">D</button>
+                        <button class="pixel-border p-1 w-10 h-10 flex items-center justify-center btn-pixel">G</button>
+                        <button class="pixel-border p-1 w-10 h-10 flex items-center justify-center btn-pixel">F</button>
+                        <button class="pixel-border p-1 w-10 h-10 flex items-center justify-center btn-pixel">T</button>
                     </div>
                 </div>
             </div>
 
-            <div class="column">
-                <div class="card">
-                    <h3>SOCIAL</h3>
-                    <div class="icons">
-                        <i class="fab fa-discord"></i>
-                        <i class="fab fa-github"></i>
-                        <i class="fab fa-facebook"></i>
+            <div class="md:col-span-8 space-y-6">
+                <div class="pixel-border p-4">
+                    <h3 class="font-bold mb-3 uppercase">Sở Thích</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pixel-border px-3 py-1 text-sm btn-pixel cursor-pointer">MUSIC</span>
+                        <span class="pixel-border px-3 py-1 text-sm btn-pixel cursor-pointer">GAME</span>
+                        <span class="pixel-border px-3 py-1 text-sm btn-pixel cursor-pointer">CODE</span>
+                        <span class="pixel-border px-3 py-1 text-sm btn-pixel cursor-pointer">AI</span>
+                        <span class="pixel-border px-3 py-1 text-sm btn-pixel cursor-pointer">ANIME</span>
                     </div>
                 </div>
-                <div class="card">
-                    <h3>PROJECTS</h3>
-                    <p>AI Bot <span class="status-tag active">Active</span></p>
-                    <div style="clear:both; height: 10px;"></div>
-                    <p>Portfolio <span class="status-tag done">Done</span></p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="pixel-border p-4">
+                        <h3 class="font-bold mb-4 uppercase">Yêu Thích</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs"><span>AI</span></div>
+                                <div class="h-4 border-2 border-black w-full bg-gray-100 mt-1">
+                                    <div class="progress-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs"><span>Antigravity</span></div>
+                                <div class="h-4 border-2 border-black w-full bg-gray-100 mt-1">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pixel-border p-4">
+                        <h3 class="font-bold mb-4 uppercase">Kỹ Năng</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs"><span>Music - 100%</span></div>
+                                <div class="h-2 border border-black w-full bg-gray-100">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs"><span>Code - 1%</span></div>
+                                <div class="h-2 border border-black w-full bg-gray-100">
+                                    <div class="progress-fill" style="width: 1%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="pixel-border p-4 italic">
+                        <span class="text-2xl">“</span>
+                        <p class="text-sm">Cuộc sống vốn không công bằng. Hãy tập quen dần với điều đó.</p>
+                        <span class="block text-right mt-2">- Bill Gates</span>
+                    </div>
+                    <div class="pixel-border p-4">
+                        <h3 class="font-bold mb-2">PROJECTS</h3>
+                        <div class="border border-black p-2 mb-2 flex justify-between items-center text-xs">
+                            <span>AI Bot (Discord)</span>
+                            <span class="bg-green-200 px-1 border border-black">Active</span>
+                        </div>
+                        <div class="border border-black p-2 flex justify-between items-center text-xs">
+                            <span>Portfolio</span>
+                            <span class="bg-purple-200 px-1 border border-black">Done</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <footer>
+        <div class="mt-8 text-center text-sm border-t-2 border-black pt-4">
             Made with ❤ by DUCKNOVIT | © 2024
-        </footer>
+        </div>
     </div>
 
     <script>
-        // SCRIPT CHẠY ĐỒNG HỒ
         function updateTime() {
             const now = new Date();
-            const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
-                            now.getMinutes().toString().padStart(2, '0') + ":" + 
-                            now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('clock').innerText = timeStr;
+            document.getElementById('clock').innerText = now.toLocaleTimeString('en-GB');
         }
         setInterval(updateTime, 1000);
         updateTime();
